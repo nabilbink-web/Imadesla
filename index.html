@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IMADESLA – Ikatan Mahasiswa Desa Menggala</title>
+<meta name="description" content="Website resmi IMADESLA, Ikatan Mahasiswa Desa Menggala. Kenali struktur organisasi dan divisi kami.">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --deep:#0b2a14; --forest:#14401f; --leaf:#2f8f2f; --lime:#6cc417;
+  --gold:#f2c10f; --gold-soft:#fff3c4; --paper:#f4f8ef; --ink:#10241a; --muted:#51655a;
+  --display:"Bricolage Grotesque","Trebuchet MS",sans-serif;
+  --body:"Plus Jakarta Sans","Segoe UI",Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.65}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.wrap{width:min(1120px,92%);margin:0 auto}
+h1,h2,h3{font-family:var(--display);line-height:1.1}
+
+/* NAV */
+header{position:sticky;top:0;z-index:50;background:rgba(11,42,20,.92);backdrop-filter:blur(10px);border-bottom:2px solid var(--gold)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{display:flex;align-items:center;gap:12px;color:#fff;font-family:var(--display);font-weight:800;font-size:1.25rem}
+.brand img{width:44px;height:44px;object-fit:contain}
+nav ul{display:flex;gap:6px;list-style:none}
+nav a{color:#dcebd5;padding:8px 14px;border-radius:99px;font-weight:500;font-size:.95rem;transition:.2s}
+nav a:hover{background:var(--gold);color:var(--deep)}
+.burger{display:none;background:none;border:0;color:#fff;font-size:1.7rem;cursor:pointer}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;color:#fff;min-height:calc(100vh - 68px);display:flex;align-items:center;
+  background:radial-gradient(circle at 75% 30%,#2f8f2f 0,#14401f 45%,#0b2a14 100%)}
+.hero .wrap{position:relative;z-index:3;display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;padding:60px 0 170px}
+.hero h1{font-size:clamp(2.4rem,6vw,4.6rem);font-weight:800;letter-spacing:-.02em}
+.hero h1 span{display:block;color:var(--gold)}
+.hero p{max-width:520px;margin:20px 0 30px;color:#d6e8cd;font-size:1.08rem}
+.motto{display:inline-block;border-left:4px solid var(--gold);padding:4px 0 4px 14px;font-style:italic;color:var(--gold-soft);margin-bottom:28px}
+.btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn{padding:14px 26px;border-radius:99px;font-weight:600;transition:.2s;display:inline-block}
+.btn.gold{background:var(--gold);color:var(--deep)}
+.btn.gold:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(242,193,15,.35)}
+.btn.line{border:2px solid rgba(255,255,255,.5)}
+.btn.line:hover{background:#fff;color:var(--deep)}
+.seal{position:relative;justify-self:center;width:min(380px,80vw);aspect-ratio:1}
+.seal::before{content:"";position:absolute;inset:-18px;border-radius:50%;border:2px dashed rgba(242,193,15,.6);animation:spin 40s linear infinite}
+.seal::after{content:"";position:absolute;inset:6%;border-radius:50%;background:radial-gradient(circle,rgba(108,196,23,.35),transparent 70%);filter:blur(20px)}
+.seal img{position:relative;z-index:2;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 24px 30px rgba(0,0,0,.45))}
+@keyframes spin{to{transform:rotate(360deg)}}
+.mount{position:absolute;left:0;right:0;bottom:-1px;z-index:2;width:100%;height:auto;display:block}
+.mount path{animation:rise 1.2s cubic-bezier(.2,.8,.2,1) both}
+.mount path:nth-child(2){animation-delay:.15s}.mount path:nth-child(3){animation-delay:.3s}
+@keyframes rise{from{transform:translateY(80px);opacity:0}to{transform:none;opacity:1}}
+.hero .copy>*{animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+.hero .copy>*:nth-child(2){animation-delay:.1s}.hero .copy>*:nth-child(3){animation-delay:.2s}.hero .copy>*:nth-child(4){animation-delay:.3s}
+
+/* SECTIONS */
+section{padding:92px 0}
+.title{max-width:640px;margin-bottom:46px}
+.title h2{font-size:clamp(1.9rem,4vw,2.9rem);color:var(--forest);font-weight:800}
+.title p{margin-top:12px;color:var(--muted)}
+.title::after{content:"";display:block;width:64px;height:5px;border-radius:9px;background:linear-gradient(90deg,var(--gold),var(--lime));margin-top:18px}
+
+/* TENTANG */
+.about{background:#fff}
+.meaning{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.m{padding:26px 22px;border-radius:22px 22px 22px 6px;background:var(--paper);border:1px solid #dfe9d6}
+.m:nth-child(even){background:var(--forest);color:#fff;border-color:var(--forest)}
+.m:nth-child(even) p{color:#cfe3c6}
+.m .ic{font-size:2rem;margin-bottom:10px}
+.m h3{font-size:1.25rem;margin-bottom:6px}
+.m p{font-size:.93rem;color:var(--muted)}
+
+/* STRUKTUR */
+.tree{display:flex;flex-direction:column;align-items:center}
+.row{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;width:100%}
+.vline{width:3px;height:36px;background:linear-gradient(var(--gold),var(--leaf))}
+.hline{height:3px;width:min(640px,80%);background:var(--leaf);border-radius:9px}
+.person{width:230px;background:#fff;border-radius:20px;padding:22px 16px 20px;text-align:center;border:1px solid #dfe9d6;
+  box-shadow:0 6px 0 var(--gold-soft);transition:transform .2s,box-shadow .2s}
+.person:hover{transform:translateY(-5px);box-shadow:0 11px 0 var(--gold)}
+.person.chief{width:270px;background:linear-gradient(160deg,var(--forest),var(--leaf));color:#fff;border:0;box-shadow:0 8px 0 var(--gold)}
+.avatar{width:84px;height:84px;margin:0 auto 12px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:1.6rem;
+  color:var(--forest);background:radial-gradient(circle at 30% 25%,#fff7d0,var(--gold));border:4px solid #fff;box-shadow:0 0 0 3px var(--gold);overflow:hidden}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.person h4{font-family:var(--display);font-size:1.08rem}
+.person small{display:block;margin-top:2px;color:var(--leaf);font-weight:600;font-size:.85rem}
+.person.chief small{color:var(--gold)}
+.divchips .chip{background:var(--forest);color:#fff;padding:14px 20px;border-radius:16px;font-weight:600;font-size:.92rem;text-align:center;
+  border-bottom:4px solid var(--gold);cursor:pointer;border-top:0;border-left:0;border-right:0;font-family:var(--body);transition:.2s}
+.divchips .chip:hover{background:var(--leaf);transform:translateY(-3px)}
+.chip b{display:block;color:var(--gold);font-family:var(--display);font-size:1.4rem}
+
+/* DIVISI */
+.divisi{background:linear-gradient(180deg,var(--forest),var(--deep));color:#fff}
+.divisi .title h2{color:#fff}.divisi .title p{color:#c4dbb9}
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px}
+.tab{padding:12px 22px;border-radius:99px;border:2px solid rgba(255,255,255,.28);background:transparent;color:#fff;cursor:pointer;font:600 .95rem var(--body);transition:.2s}
+.tab:hover{border-color:var(--gold)}
+.tab[aria-selected="true"]{background:var(--gold);border-color:var(--gold);color:var(--deep)}
+.panel-head{display:flex;gap:18px;align-items:center;margin-bottom:26px;padding:22px 26px;border-radius:20px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14)}
+.panel-head .big{font-family:var(--display);font-size:3rem;font-weight:800;color:var(--gold);line-height:1}
+.panel-head h3{font-size:1.5rem}.panel-head p{color:#c4dbb9;font-size:.95rem}
+.members{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px}
+.members .person{width:auto;padding:18px 10px;color:var(--ink);box-shadow:none;border:0}
+.members .person:hover{box-shadow:0 6px 0 var(--gold)}
+.members .avatar{width:64px;height:64px;font-size:1.15rem}
+.members .person h4{font-size:.95rem}
+.panel.swap{animation:rise .5s both}
+
+/* KONTAK & FOOTER */
+.contact{background:#fff}
+.cta{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;background:var(--gold);border-radius:30px;padding:46px;color:var(--deep)}
+.cta h2{font-size:clamp(1.7rem,3.4vw,2.5rem);font-weight:800}
+.cta p{margin-top:10px}
+.links{display:flex;flex-direction:column;gap:12px}
+.links a{background:var(--deep);color:#fff;padding:14px 20px;border-radius:14px;font-weight:600;transition:.2s}
+.links a:hover{background:var(--leaf);transform:translateX(6px)}
+footer{background:var(--deep);color:#b6cfab;text-align:center;padding:34px 0;font-size:.9rem;border-top:4px solid var(--gold)}
+footer img{width:56px;margin-bottom:8px}
+
+
+/* EDIT MODE */
+.aw{position:relative;width:max-content;margin:0 auto 12px}
+.aw .avatar{margin:0}
+.edit-only{display:none}
+body.editing .edit-only{display:flex}
+.cam{position:absolute;inset:0;background:rgba(11,42,20,.6);color:#fff;font-size:1.5rem;align-items:center;justify-content:center}
+.rm{position:absolute;top:-6px;right:-6px;width:26px;height:26px;border-radius:50%;border:2px solid #fff;background:#c62828;color:#fff;font-size:1rem;line-height:1;cursor:pointer;align-items:center;justify-content:center;z-index:2}
+body.editing .avatar{cursor:pointer}
+body.editing .person h4[data-name]{outline:2px dashed var(--gold);outline-offset:3px;border-radius:6px;cursor:text;background:rgba(242,193,15,.14);padding:2px 4px}
+.bar{display:none;position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:60;width:min(700px,94%);background:var(--deep);color:#fff;border:2px solid var(--gold);border-radius:18px;padding:12px 14px;box-shadow:0 14px 40px rgba(0,0,0,.45);flex-wrap:wrap;gap:8px;align-items:center}
+body.editing .bar{display:flex}
+.bar p{flex:1 1 100%;font-size:.85rem;color:var(--gold-soft)}
+.bar button{padding:9px 14px;border-radius:99px;border:0;font:600 .85rem var(--body);cursor:pointer;background:rgba(255,255,255,.14);color:#fff}
+.bar button:hover{background:var(--leaf)}
+.bar button.ok{background:var(--gold);color:var(--deep)}
+.editbtn{background:none;border:0;color:#8fb083;font:inherit;cursor:pointer;text-decoration:underline;margin-top:8px}
+body.editing footer{padding-bottom:150px}
+.addr{margin-top:10px;font-weight:600}
+@media(prefers-reduced-motion:reduce){.x{}}
+@media(max-width:860px){
+  .hero .wrap{grid-template-columns:1fr;text-align:center;padding-bottom:140px}
+  .hero p{margin-inline:auto}.btns{justify-content:center}.motto{text-align:left}
+  .seal{order:-1;width:min(240px,60vw)}
+  .meaning{grid-template-columns:1fr 1fr}
+  .cta{grid-template-columns:1fr;padding:30px}
+  .burger{display:block}
+  nav ul{display:none;position:absolute;top:68px;left:0;right:0;background:var(--deep);flex-direction:column;padding:12px 4%}
+  nav ul.open{display:flex}
+  .hline{display:none}
+}
+@media(max-width:520px){.meaning{grid-template-columns:1fr}.panel-head{flex-direction:column;text-align:center}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#beranda"><img src="logo.png" alt="Logo IMADESLA">IMADESLA</a>
+    <button class="burger" aria-label="Buka menu" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
+    <nav><ul id="menu">
+      <li><a href="#beranda">Beranda</a></li>
+      <li><a href="#tentang">Tentang</a></li>
+      <li><a href="#struktur">Struktur</a></li>
+      <li><a href="#divisi">Divisi</a></li>
+      <li><a href="#kontak">Kontak</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="beranda" style="padding:0">
+  <div class="wrap">
+    <div class="copy">
+      <div class="motto">“sekek okat sekek pelampan Menyopoq”</div>
+      <h1>Ikatan Mahasiswa<span>Desa Menggala</span></h1>
+      <p>IMADESLA adalah rumah bagi mahasiswa asal Desa Menggala, Kabupaten Lombok Utara, untuk belajar bersama, berorganisasi, dan membawa ilmu kembali untuk membangun desa.</p>
+      <div class="btns">
+        <a class="btn gold" href="#struktur">Lihat struktur organisasi</a>
+        <a class="btn line" href="#divisi">Kenali divisi kami</a>
+      </div>
+    </div>
+    <div class="seal"><img src="logo.png" alt="Logo Ikatan Mahasiswa Desa Menggala"></div>
+  </div>
+  <svg class="mount" viewBox="0 0 1440 220" preserveAspectRatio="none" aria-hidden="true">
+    <path fill="#1d6a27" d="M0 220V130L180 60l140 70 160-90 170 100 150-60 190 80 140-70 130 60 160-40v180z"/>
+    <path fill="#14401f" d="M0 220V160l220-70 180 80 210-110 200 120 170-80 260 90 200-60v170z"/>
+    <path fill="#f4f8ef" d="M0 220v-30c200-30 380-10 720 0s560-30 720 0v30z"/>
+  </svg>
+</section>
+
+<section class="about" id="tentang">
+  <div class="wrap">
+    <div class="title">
+      <h2>Makna di balik logo kami</h2>
+      <p>Setiap gambar pada logo IMADESLA membawa pesan tentang asal, tujuan, dan semangat kami.</p>
+    </div>
+    <div class="meaning">
+      <div class="m"><div class="ic">⛰️</div><h3>Gunung</h3><p>Tanah kelahiran Menggala yang kokoh dan menjadi tempat kami pulang.</p></div>
+      <div class="m"><div class="ic">📖</div><h3>Buku terbuka</h3><p>Semangat belajar dan pendidikan sebagai bekal anggota untuk maju.</p></div>
+      <div class="m"><div class="ic">🌾</div><h3>Padi</h3><p>Kesejahteraan dan hasil kerja keras yang ingin kami bagikan untuk desa.</p></div>
+      <div class="m"><div class="ic">🏠</div><h3>Rumah adat</h3><p>Akar budaya dan kebersamaan yang kami jaga di mana pun kami berada.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="struktur">
+  <div class="wrap">
+    <div class="title">
+      <h2>Struktur organisasi</h2>
+      <p>Pengurus IMADESLA terdiri dari pimpinan inti dan empat divisi. Pilih divisi untuk melihat anggotanya.</p>
+    </div>
+    <div class="tree">
+      <div class="row" id="lvlKetua"></div>
+      <div class="vline"></div><div class="hline"></div>
+      <div class="row" id="lvlInti" style="margin-top:0"></div>
+      <div class="vline"></div>
+      <div class="row divchips" id="lvlDivisi"></div>
+    </div>
+  </div>
+</section>
+
+<section class="divisi" id="divisi">
+  <div class="wrap">
+    <div class="title">
+      <h2>Divisi dan anggota</h2>
+      <p>Setiap divisi bekerja pada bidangnya, lalu bergerak bersama untuk tujuan IMADESLA.</p>
+    </div>
+    <div class="tabs" id="tabs" role="tablist"></div>
+    <div class="panel" id="panel" role="tabpanel"></div>
+  </div>
+</section>
+
+<section class="contact" id="kontak">
+  <div class="wrap">
+    <div class="cta">
+      <div>
+        <h2>Ingin bergabung atau bekerja sama?</h2>
+        <p>Hubungi pengurus IMADESLA lewat media berikut.</p>
+        <p class="addr">📍 Dusun Bentek, Desa Menggala, Kabupaten Lombok Utara</p>
+      </div>
+      <div class="links">
+        <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram IMADESLA</a>
+        <a href="https://wa.me/" target="_blank" rel="noopener">WhatsApp pengurus</a>
+        <a href="mailto:imadesla@gmail.com">Email IMADESLA</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<div class="bar" role="toolbar" aria-label="Alat edit">
+  <p>Mode edit aktif: klik foto untuk memilih dari galeri, klik nama untuk mengetik. Perubahan tersimpan otomatis di browser ini.</p>
+  <button class="ok" id="bDone">Selesai</button>
+  <button id="bHtml">Unduh index.html baru</button>
+  <button id="bJson">Cadangkan data</button>
+  <button id="bImp">Pulihkan data</button>
+  <button id="bReset">Reset</button>
+</div>
+<input type="file" id="fPhoto" accept="image/*" hidden>
+<input type="file" id="fJson" accept="application/json,.json" hidden>
+
+<footer>
+  <img src="logo.png" alt="">
+  <p><b>IMADESLA</b> – Ikatan Mahasiswa Desa Menggala</p>
+  <p>Dusun Bentek, Desa Menggala, Kabupaten Lombok Utara</p>
+  <p>© <span id="yr"></span> IMADESLA. Seluruh hak dilindungi.</p>
+  <button class="editbtn" id="editBtn">Mode edit pengurus</button>
+</footer>
+
+<script>
+/* =====================================================
+   DATA AWAL (nama sementara). Nama dan foto sebaiknya diubah
+   langsung lewat "Mode edit pengurus" di bagian bawah halaman.
+   ===================================================== */
+const ketua  = {nama:"Nama Ketua", jabatan:"Ketua", foto:""};
+const inti = [
+  {nama:"Nama Sekretaris Umum",       jabatan:"Sekretaris Umum",       foto:""},
+  {nama:"Nama Wakil Sekretaris Umum", jabatan:"Wakil Sekretaris Umum", foto:""},
+  {nama:"Nama Bendahara",             jabatan:"Bendahara",             foto:""}
+];
+const divisi = [
+  {id:"pendidikan", nama:"Divisi Pendidikan", jumlah:10, desc:"Mendorong semangat belajar, beasiswa, dan kegiatan akademik anggota."},
+  {id:"media",      nama:"Divisi Media",      jumlah:5,  desc:"Mengelola publikasi, desain, dan dokumentasi kegiatan IMADESLA."},
+  {id:"kaderisasi", nama:"Divisi Kaderisasi", jumlah:10, desc:"Membina anggota baru dan menyiapkan generasi penerus organisasi."},
+  {id:"ekonomi",    nama:"Divisi Ekonomi dan Kewirausahaan", jumlah:5, desc:"Menumbuhkan usaha anggota dan potensi ekonomi desa."}
+];
+/* Data hasil edit yang ditanam ke file (diisi otomatis oleh tombol "Unduh index.html baru") */
+const SAVED = /*SAVED*/null/*END*/;
+/* ===================================================== */
+
+const KEY = "imadesla-edits-v1";
+let edits = {};
+try{ edits = Object.assign({}, SAVED||{}, JSON.parse(localStorage.getItem(KEY)||"{}")); }catch(e){ edits = Object.assign({}, SAVED||{}); }
+let current = divisi[0].id, pickId = null;
+
+const $ = id => document.getElementById(id);
+const esc = t => String(t).replace(/[&<>"]/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const initials = n => n.replace(/^Nama\s+/i,"").split(/\s+/).slice(0,2).map(w=>w[0]).join("").toUpperCase() || "?";
+function save(){
+  try{ localStorage.setItem(KEY, JSON.stringify(edits)); }
+  catch(e){ alert("Penyimpanan browser penuh. Gunakan foto lebih sedikit atau klik 'Unduh index.html baru'."); }
+}
+function setEdit(on){
+  document.body.classList.toggle("editing", on);
+  document.querySelectorAll("[data-name]").forEach(el=>el.contentEditable = on ? "true" : "false");
+}
+
+function card(p, id, cls=""){
+  const e = edits[id] || {};
+  const nama = e.nama ?? p.nama, foto = e.foto ?? p.foto;
+  return `<div class="person ${cls}">
+    <div class="aw">
+      <div class="avatar" data-photo="${id}" title="Ganti foto">${foto?`<img src="${foto}" alt="Foto ${esc(nama)}">`:esc(initials(nama))}<span class="cam edit-only">📷</span></div>
+      ${foto?`<button class="rm edit-only" data-rm="${id}" aria-label="Hapus foto">×</button>`:""}
+    </div>
+    <h4 data-name="${id}">${esc(nama)}</h4><small>${esc(p.jabatan)}</small></div>`;
+}
+
+function renderPanel(){
+  const d = divisi.find(x=>x.id===current);
+  [...$("tabs").children].forEach(t=>t.setAttribute("aria-selected", t.dataset.id===current));
+  let html = "";
+  for(let i=0;i<d.jumlah;i++) html += card({nama:"Anggota "+(i+1), jabatan:"Anggota", foto:""}, d.id+"-"+i);
+  $("panel").innerHTML = `<div class="panel-head"><div class="big">${d.jumlah}</div>
+    <div><h3>${d.nama}</h3><p>${d.desc}</p></div></div><div class="members">${html}</div>`;
+}
+function renderAll(){
+  $("lvlKetua").innerHTML = card(ketua,"ketua","chief");
+  $("lvlInti").innerHTML  = inti.map((p,i)=>card(p,"inti"+i)).join("");
+  renderPanel();
+  setEdit(document.body.classList.contains("editing"));
+}
+
+$("lvlDivisi").innerHTML = divisi.map(d=>`<button class="chip" data-id="${d.id}"><b>${d.jumlah}</b>${d.nama}</button>`).join("");
+$("tabs").innerHTML = divisi.map(d=>`<button class="tab" role="tab" data-id="${d.id}" aria-selected="false">${d.nama}</button>`).join("");
+$("tabs").addEventListener("click", e=>{const b=e.target.closest(".tab"); if(b){current=b.dataset.id; renderPanel(); setEdit(document.body.classList.contains("editing"));}});
+$("lvlDivisi").addEventListener("click", e=>{
+  const b=e.target.closest(".chip"); if(!b) return;
+  current=b.dataset.id; renderPanel(); setEdit(document.body.classList.contains("editing"));
+  $("divisi").scrollIntoView({behavior:"smooth"});
+});
+
+/* ---- Edit foto ---- */
+document.addEventListener("click", e=>{
+  if(!document.body.classList.contains("editing")) return;
+  const rm = e.target.closest("[data-rm]");
+  if(rm){ const id=rm.dataset.rm; edits[id]=Object.assign(edits[id]||{}, {foto:""}); save(); renderAll(); return; }
+  const ph = e.target.closest("[data-photo]");
+  if(ph){ pickId = ph.dataset.photo; $("fPhoto").value=""; $("fPhoto").click(); }
+});
+$("fPhoto").addEventListener("change", e=>{
+  const f = e.target.files[0]; if(!f || !pickId) return;
+  const fr = new FileReader();
+  fr.onload = () => { const im = new Image();
+    im.onload = () => {
+      const s = Math.min(im.width, im.height), c = document.createElement("canvas");
+      c.width = c.height = 320;
+      c.getContext("2d").drawImage(im, (im.width-s)/2, (im.height-s)*0.2, s, s, 0, 0, 320, 320);
+      edits[pickId] = Object.assign(edits[pickId]||{}, {foto:c.toDataURL("image/jpeg",.82)});
+      save(); renderAll();
+    };
+    im.src = fr.result; };
+  fr.readAsDataURL(f);
+});
+
+/* ---- Edit nama ---- */
+document.addEventListener("keydown", e=>{ if(e.key==="Enter" && e.target.matches("[data-name]")){ e.preventDefault(); e.target.blur(); }});
+document.addEventListener("focusout", e=>{
+  const h = e.target; if(!h.matches || !h.matches("[data-name]")) return;
+  const id = h.dataset.name, t = h.textContent.trim();
+  edits[id] = edits[id] || {};
+  if(t) edits[id].nama = t; else delete edits[id].nama;
+  save();
+  const av = h.closest(".person").querySelector(".avatar");
+  if(av && !av.querySelector("img")) av.firstChild.textContent = initials(t || h.textContent);
+});
+
+/* ---- Alat edit ---- */
+function download(text, name, type){
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([text],{type})); a.download = name; a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href), 1000);
+}
+$("editBtn").onclick = ()=>setEdit(true);
+$("bDone").onclick = ()=>setEdit(false);
+$("bJson").onclick = ()=>download(JSON.stringify(edits,null,1), "data-imadesla.json", "application/json");
+$("bImp").onclick = ()=>$("fJson").click();
+$("fJson").addEventListener("change", e=>{
+  const f = e.target.files[0]; if(!f) return;
+  const fr = new FileReader();
+  fr.onload = ()=>{ try{ Object.assign(edits, JSON.parse(fr.result)); save(); renderAll(); }catch(x){ alert("File data tidak valid."); } };
+  fr.readAsText(f);
+});
+$("bReset").onclick = ()=>{ if(confirm("Hapus semua perubahan nama dan foto di browser ini?")){ edits={}; try{localStorage.removeItem(KEY)}catch(x){} renderAll(); } };
+$("bHtml").onclick = async ()=>{
+  try{
+    const r = await fetch(location.href.split("#")[0]); let t = await r.text();
+    const data = JSON.stringify(edits).replace(/</g,"\\u003c");
+    t = t.replace(/\/\*SAVED\*\/[\s\S]*?\/\*END\*\//, ()=>"/*SAVED*/"+data+"/*END*/");
+    download(t, "index.html", "text/html");
+  }catch(x){ alert("Fitur ini hanya jalan saat website dibuka lewat GitHub Pages atau server. Untuk sementara pakai 'Cadangkan data'."); }
+};
+
+document.querySelectorAll("#menu a").forEach(a=>a.addEventListener("click",()=>$("menu").classList.remove("open")));
+document.querySelectorAll("img").forEach(i=>i.addEventListener("error",()=>{i.style.visibility="hidden"}));
+$("yr").textContent = new Date().getFullYear();
+renderAll();
+if(location.hash==="#edit") setEdit(true);
+</script>
+</body>
+</html>
